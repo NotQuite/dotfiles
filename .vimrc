@@ -2,7 +2,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set number
+set ignorecase
 
+set spell
 
 filetype plugin indent on
 
@@ -29,6 +31,8 @@ Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript'}
 
 Plug 'sickill/vim-monokai'
 
+Plug 'digitaltoad/vim-jade'
+
 "fuzzy matching
 Plug 'kien/ctrlp.vim'
 
@@ -46,6 +50,13 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = '-std=c++11'
+
+" Doesn't work because syntastic seems to only run on
+" the real written file. So unsaved changes are ignored
+"autocmd InsertLeave *.js :SyntasticCheck
 
 " set up monokai
 syntax enable
