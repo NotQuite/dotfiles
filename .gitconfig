@@ -1,0 +1,12 @@
+[user]
+	email = a.bandeali@gmail.com
+	name = Azeem Bande-Ali
+[push]
+	default = simple
+[color]
+	ui = true
+
+[alias]
+    logs = log --stat
+    me = log --author="Azeem Bande-Ali"
+    recent = for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short) %(committerdate) %(authorname)' 
