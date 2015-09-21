@@ -4,7 +4,7 @@ set expandtab
 set number
 set ignorecase
 
-set spell
+"set spell
 
 filetype plugin indent on
 
@@ -62,3 +62,4 @@ let g:syntastic_cpp_compiler_options = '-std=c++11'
 
 " set up monokai
 syntax enable
+colorscheme peachpuff
