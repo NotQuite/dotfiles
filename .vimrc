@@ -29,7 +29,9 @@ Plug 'scrooloose/syntastic'
 " JS syntax
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript'}
 
-Plug 'sickill/vim-monokai'
+" Plug 'sickill/vim-monokai'
+" It seems that the gnome-terminal monokai and monokai
+" here are getting confused
 
 Plug 'digitaltoad/vim-jade'
 
@@ -60,4 +62,3 @@ let g:syntastic_cpp_compiler_options = '-std=c++11'
 
 " set up monokai
 syntax enable
-colorscheme monokai
