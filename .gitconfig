@@ -10,3 +10,5 @@
     logs = log --stat
     me = log --author="Azeem Bande-Ali"
     recent = for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short) %(committerdate) %(authorname)' 
+[core]
+	editor = vim

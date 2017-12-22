@@ -9,6 +9,8 @@ set backspace=indent,eol,start
 set number
 set ignorecase
 
+set noswapfile
+
 "turn on 256 color
 set t_Co=256
 
@@ -88,7 +90,11 @@ Plug 'rking/ag.vim'
 " Add visuals for marks
 Plug 'kshenoy/vim-signature'
 
+Plug 'scrooloose/nerdtree'
+
 call plug#end()
+
+let g:ctrlp_custom_ignore = 'node_modules\|\.git'
 
 " Adding git status
 set statusline+=%{fugitive#statusline()}
@@ -106,6 +112,11 @@ if isLight
   let g:syntastic_mode_map = { 'passive_filetypes': [] }
   let g:syntastic_cpp_remove_include_errors = 1
   let g:syntastic_python_checkers = ['pyflakes']
+  let g:syntastic_javascript_checkers = ['eslint']
 endif
 
 colorscheme monokai
+
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++14' 
+let g:syntastic_cpp_include_dirs = ['/home/azeem/github/googletest/googletest/include/', '/home/azeem/github/googletest/googlemock/include/']
