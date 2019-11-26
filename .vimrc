@@ -16,19 +16,6 @@ set t_Co=256
 
 let mapleader=" "
 
-let isLight = system("uptime | cut -f2 -d, | tr --squeeze-repeats ' ' | cut -f2 -d' '") < 50
-
-" --------------------------------------------------------
-" Help startup performance
-" Profile using vim --startuptime <logfile> <file to edit>
-" Do this a few times, the first time is always a lot slower
-
-" Setting up the clipboard is taking > 100ms and I don't see
-" any change in behavior.
-set clipboard=exclude:.*
-
-" --------------------------------------------------------
-
 "turn on folds. Here are some helpful commands too:
 "zo, zc for stuff on cursor (open/close)
 "zO (open all, that big o)
@@ -48,11 +35,6 @@ nmap  <Down> :wincmd j<CR>
 nmap  <Left> :wincmd h<CR>
 nmap  <Right> :wincmd l<CR>
 
-"half down
-nmap <Leader>j <C-d>
-nmap <Leader>k <C-u>
-
-
 
 call plug#begin('~/.vim/plugged')
 
@@ -62,17 +44,6 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 " git gutter
 Plug 'airblade/vim-gitgutter'
-
-" jshint
-"Plug 'walm/jshint.vim', { 'for': 'javascript' }
-
-" static checker
-if isLight
-  Plug 'scrooloose/syntastic'
-endif
-
-" JS syntax
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript'}
 
 Plug 'sickill/vim-monokai'
 
@@ -99,24 +70,4 @@ let g:ctrlp_custom_ignore = 'node_modules\|\.git'
 " Adding git status
 set statusline+=%{fugitive#statusline()}
 
-" If the machine has less than 50 users, do heavy stuff
-if isLight
-  " Recommended default options for syntastic
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 0
-  let g:syntastic_check_on_wq = 0
-  let g:syntastic_mode_map = { 'passive_filetypes': [] }
-  let g:syntastic_cpp_remove_include_errors = 1
-  let g:syntastic_python_checkers = ['pyflakes']
-  let g:syntastic_javascript_checkers = ['eslint']
-endif
-
 colorscheme monokai
-
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++14' 
-let g:syntastic_cpp_include_dirs = ['/home/azeem/github/googletest/googletest/include/', '/home/azeem/github/googletest/googlemock/include/']
