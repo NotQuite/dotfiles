@@ -6,7 +6,7 @@ curl --silent -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim
 
 
-for item in .vimrc .tmux.conf .gitconfig .custom.bashrc
+for item in .vimrc .tmux.conf .gitconfig .custom.bashrc .dircolors
 do
     ln -s $BASE_DIR/$item ~/
 done

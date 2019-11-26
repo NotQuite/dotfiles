@@ -16,4 +16,5 @@ Vagrant.configure("2") do |config|
       args: "/vagrant/dotfiles"
   config.vm.provision "shell",
       inline: "timedatectl set-timezone America/New_York"
+  # usermod -a -G docker,vboxsf vagrant
 end
